@@ -4,6 +4,12 @@
  */
 package GUI;
 
+import java.awt.Desktop;
+import java.awt.Image;
+import java.net.URL;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Rhythin
@@ -17,6 +23,18 @@ public class HomePage extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        setTitle("Student Result Management System");
+        scaleimage();
+    }
+    
+    public void scaleimage(){
+        BackgroundLabel.setPreferredSize(this.getPreferredSize());
+        BackgroundLabel.setBounds(this.getBounds());
+        ImageIcon icon= new ImageIcon(getClass().getResource("background.jpg"));
+        Image img=icon.getImage();
+        Image scaledImage = img.getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon=new ImageIcon(scaledImage);
+        BackgroundLabel.setIcon(scaledIcon);    
     }
 
     /**
@@ -28,63 +46,86 @@ public class HomePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        StudentButton = new javax.swing.JButton();
+        AdminButton = new javax.swing.JButton();
+        Help = new javax.swing.JButton();
+        BackgroundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(700, 500));
-        setMinimumSize(new java.awt.Dimension(700, 500));
-        setPreferredSize(new java.awt.Dimension(700, 500));
+        setMaximumSize(getPreferredSize());
+        setMinimumSize(getPreferredSize());
+        setPreferredSize(new java.awt.Dimension(550, 500));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/icons8-schoolboy-at-a-desk-30.png"))); // NOI18N
-        jButton1.setText("Student");
-        jButton1.setMaximumSize(new java.awt.Dimension(100, 30));
-        jButton1.setPreferredSize(new java.awt.Dimension(100, 30));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        StudentButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        StudentButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/icons8-schoolboy-at-a-desk-30.png"))); // NOI18N
+        StudentButton.setText("Student");
+        StudentButton.setMaximumSize(new java.awt.Dimension(100, 30));
+        StudentButton.setPreferredSize(new java.awt.Dimension(100, 30));
+        StudentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                StudentButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 150, -1));
+        getContentPane().add(StudentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 150, -1));
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/icons8-admin-settings-male-30.png"))); // NOI18N
-        jButton2.setText("Admin");
-        jButton2.setMaximumSize(new java.awt.Dimension(100, 30));
-        jButton2.setPreferredSize(new java.awt.Dimension(100, 30));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        AdminButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        AdminButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/icons8-admin-settings-male-30.png"))); // NOI18N
+        AdminButton.setText("Admin");
+        AdminButton.setMaximumSize(new java.awt.Dimension(100, 30));
+        AdminButton.setPreferredSize(new java.awt.Dimension(100, 30));
+        AdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                AdminButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 150, -1));
+        getContentPane().add(AdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 150, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/schoolPic1.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-520, -370, -1, -1));
+        Help.setText("Help");
+        Help.setPreferredSize(new java.awt.Dimension(150, 30));
+        Help.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HelpActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Help, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, -1, -1));
+
+        BackgroundLabel.setText("jLabel2");
+        BackgroundLabel.setMaximumSize(new java.awt.Dimension(550, 500));
+        BackgroundLabel.setPreferredSize(new java.awt.Dimension(100, 100));
+        getContentPane().add(BackgroundLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void AdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         AdminLogin frame=new AdminLogin();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_AdminButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void StudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StudentButtonActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         Student frame=new Student();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_StudentButtonActionPerformed
+
+    private void HelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HelpActionPerformed
+        // TODO add your handling code here:
+        try {
+            
+            Desktop.getDesktop().browse(new URL(GUI.Help.getUrl()).toURI());
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+    }//GEN-LAST:event_HelpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,8 +163,9 @@ public class HomePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton AdminButton;
+    private javax.swing.JLabel BackgroundLabel;
+    private javax.swing.JButton Help;
+    private javax.swing.JButton StudentButton;
     // End of variables declaration//GEN-END:variables
 }

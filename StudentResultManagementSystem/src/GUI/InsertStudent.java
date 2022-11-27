@@ -8,6 +8,8 @@ package GUI;
 import java.sql.Connection;
 import java.sql.Statement;
 import ConnectionProvider.ConnectionProviderCode;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +25,17 @@ public class InsertStudent extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+        setTitle("Add Students");
+        scaleimage();
+    }
+    public void scaleimage(){
+        BackgroundLabel.setPreferredSize(this.getPreferredSize());
+        BackgroundLabel.setBounds(this.getBounds());
+        ImageIcon icon= new ImageIcon(getClass().getResource("background.jpg"));
+        Image img=icon.getImage();
+        Image scaledImage = img.getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon=new ImageIcon(scaledImage);
+        BackgroundLabel.setIcon(scaledIcon);    
     }
 
     /**
@@ -34,132 +47,137 @@ public class InsertStudent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        NameLabel = new javax.swing.JLabel();
+        RollnoLabel = new javax.swing.JLabel();
+        GenderLabel = new javax.swing.JLabel();
+        fathernameLabel = new javax.swing.JLabel();
+        courseLabel = new javax.swing.JLabel();
+        branchLabel = new javax.swing.JLabel();
+        submitButton = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
+        NameTextField = new javax.swing.JTextField();
+        RollnoTextField = new javax.swing.JTextField();
+        fatherNametextField = new javax.swing.JTextField();
+        GenderComboBox = new javax.swing.JComboBox<>();
+        CourseComboBox = new javax.swing.JComboBox<>();
+        BranchComboBox = new javax.swing.JComboBox<>();
+        BackgroundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(550, 500));
         setMinimumSize(new java.awt.Dimension(550, 500));
         setPreferredSize(new java.awt.Dimension(550, 500));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Name");
-        jLabel1.setMaximumSize(new java.awt.Dimension(150, 30));
-        jLabel1.setMinimumSize(new java.awt.Dimension(150, 30));
-        jLabel1.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
+        NameLabel.setText("Name");
+        NameLabel.setMaximumSize(new java.awt.Dimension(150, 30));
+        NameLabel.setMinimumSize(new java.awt.Dimension(150, 30));
+        NameLabel.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(NameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
 
-        jLabel2.setText("Roll No");
-        jLabel2.setMaximumSize(new java.awt.Dimension(150, 30));
-        jLabel2.setMinimumSize(new java.awt.Dimension(150, 30));
-        jLabel2.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
+        RollnoLabel.setText("Roll No");
+        RollnoLabel.setMaximumSize(new java.awt.Dimension(150, 30));
+        RollnoLabel.setMinimumSize(new java.awt.Dimension(150, 30));
+        RollnoLabel.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(RollnoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
-        jLabel3.setText("Gender");
-        jLabel3.setMaximumSize(new java.awt.Dimension(150, 30));
-        jLabel3.setMinimumSize(new java.awt.Dimension(150, 30));
-        jLabel3.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
+        GenderLabel.setText("Gender");
+        GenderLabel.setMaximumSize(new java.awt.Dimension(150, 30));
+        GenderLabel.setMinimumSize(new java.awt.Dimension(150, 30));
+        GenderLabel.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(GenderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
 
-        jLabel4.setText("Father's Name");
-        jLabel4.setMaximumSize(new java.awt.Dimension(150, 30));
-        jLabel4.setMinimumSize(new java.awt.Dimension(150, 30));
-        jLabel4.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 150, 30));
+        fathernameLabel.setText("Father's Name");
+        fathernameLabel.setMaximumSize(new java.awt.Dimension(150, 30));
+        fathernameLabel.setMinimumSize(new java.awt.Dimension(150, 30));
+        fathernameLabel.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(fathernameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 150, 30));
 
-        jLabel5.setText("Course");
-        jLabel5.setMaximumSize(new java.awt.Dimension(150, 30));
-        jLabel5.setMinimumSize(new java.awt.Dimension(150, 30));
-        jLabel5.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
+        courseLabel.setText("Course");
+        courseLabel.setMaximumSize(new java.awt.Dimension(150, 30));
+        courseLabel.setMinimumSize(new java.awt.Dimension(150, 30));
+        courseLabel.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(courseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
 
-        jLabel6.setText("Batch");
-        jLabel6.setMaximumSize(new java.awt.Dimension(150, 30));
-        jLabel6.setMinimumSize(new java.awt.Dimension(150, 30));
-        jLabel6.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
+        branchLabel.setText("Branch");
+        branchLabel.setMaximumSize(new java.awt.Dimension(150, 30));
+        branchLabel.setMinimumSize(new java.awt.Dimension(150, 30));
+        branchLabel.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(branchLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
 
-        jButton1.setText("Submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        submitButton.setText("Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                submitButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, -1, -1));
+        getContentPane().add(submitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, -1, -1));
 
-        jButton2.setText("Exit");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        exitButton.setText("Exit");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                exitButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, -1, -1));
+        getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, -1, -1));
 
-        jTextField1.setMaximumSize(new java.awt.Dimension(150, 30));
-        jTextField1.setMinimumSize(new java.awt.Dimension(150, 30));
-        jTextField1.setPreferredSize(new java.awt.Dimension(150, 30));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        NameTextField.setMaximumSize(new java.awt.Dimension(150, 30));
+        NameTextField.setMinimumSize(new java.awt.Dimension(150, 30));
+        NameTextField.setPreferredSize(new java.awt.Dimension(150, 30));
+        NameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                NameTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
+        getContentPane().add(NameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
 
-        jTextField2.setMaximumSize(new java.awt.Dimension(150, 30));
-        jTextField2.setMinimumSize(new java.awt.Dimension(150, 30));
-        jTextField2.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, -1, -1));
+        RollnoTextField.setMaximumSize(new java.awt.Dimension(150, 30));
+        RollnoTextField.setMinimumSize(new java.awt.Dimension(150, 30));
+        RollnoTextField.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(RollnoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, -1, -1));
 
-        jTextField3.setMaximumSize(new java.awt.Dimension(150, 30));
-        jTextField3.setMinimumSize(new java.awt.Dimension(150, 30));
-        jTextField3.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, -1, -1));
+        fatherNametextField.setMaximumSize(new java.awt.Dimension(150, 30));
+        fatherNametextField.setMinimumSize(new java.awt.Dimension(150, 30));
+        fatherNametextField.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(fatherNametextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
-        jComboBox1.setMaximumSize(new java.awt.Dimension(150, 30));
-        jComboBox1.setMinimumSize(new java.awt.Dimension(150, 30));
-        jComboBox1.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
+        GenderComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
+        GenderComboBox.setMaximumSize(new java.awt.Dimension(150, 30));
+        GenderComboBox.setMinimumSize(new java.awt.Dimension(150, 30));
+        GenderComboBox.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(GenderComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "B.tech", "M.tech" }));
-        jComboBox2.setMaximumSize(new java.awt.Dimension(150, 30));
-        jComboBox2.setMinimumSize(new java.awt.Dimension(150, 30));
-        jComboBox2.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
+        CourseComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "B.tech", "M.tech" }));
+        CourseComboBox.setMaximumSize(new java.awt.Dimension(150, 30));
+        CourseComboBox.setMinimumSize(new java.awt.Dimension(150, 30));
+        CourseComboBox.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(CourseComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mech", "Chem", "CS", "Arch" }));
-        jComboBox3.setMaximumSize(new java.awt.Dimension(150, 30));
-        jComboBox3.setMinimumSize(new java.awt.Dimension(150, 30));
-        jComboBox3.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, -1, -1));
+        BranchComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mech", "Chem", "CS", "Arch" }));
+        BranchComboBox.setMaximumSize(new java.awt.Dimension(150, 30));
+        BranchComboBox.setMinimumSize(new java.awt.Dimension(150, 30));
+        BranchComboBox.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(BranchComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, -1, -1));
+
+        BackgroundLabel.setText("jLabel1");
+        getContentPane().add(BackgroundLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void NameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_NameTextFieldActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // submit button:
-        String name=jTextField1.getText();
-        int rollno=Integer.parseInt(jTextField2.getText());
-        String gender=(String)jComboBox1.getSelectedItem();
-        String fathername=jTextField3.getText();
-        String course=(String)jComboBox2.getSelectedItem();
-        String branch=(String)jComboBox3.getSelectedItem();
+        String name=NameTextField.getText();
+        int rollno=Integer.parseInt(RollnoTextField.getText());
+        String gender=(String)GenderComboBox.getSelectedItem();
+        String fathername=fatherNametextField.getText();
+        String course=(String)CourseComboBox.getSelectedItem();
+        String branch=(String)BranchComboBox.getSelectedItem();
         
         
         try{
@@ -177,9 +195,9 @@ public class InsertStudent extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, excp.toString());
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_submitButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
         int result=JOptionPane.showConfirmDialog(null, "are you sure?", "exit", JOptionPane.YES_NO_OPTION);
         
@@ -189,7 +207,7 @@ public class InsertStudent extends javax.swing.JFrame {
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_exitButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,19 +245,20 @@ public class InsertStudent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel BackgroundLabel;
+    private javax.swing.JComboBox<String> BranchComboBox;
+    private javax.swing.JComboBox<String> CourseComboBox;
+    private javax.swing.JComboBox<String> GenderComboBox;
+    private javax.swing.JLabel GenderLabel;
+    private javax.swing.JLabel NameLabel;
+    private javax.swing.JTextField NameTextField;
+    private javax.swing.JLabel RollnoLabel;
+    private javax.swing.JTextField RollnoTextField;
+    private javax.swing.JLabel branchLabel;
+    private javax.swing.JLabel courseLabel;
+    private javax.swing.JButton exitButton;
+    private javax.swing.JTextField fatherNametextField;
+    private javax.swing.JLabel fathernameLabel;
+    private javax.swing.JButton submitButton;
     // End of variables declaration//GEN-END:variables
 }

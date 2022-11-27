@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import ConnectionProvider.ConnectionProviderCode;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -23,6 +25,18 @@ public class AdminLogin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        setTitle("Admin Login");
+        scaleimage();
+        
+    }
+    public void scaleimage(){
+        BackgroundLabel.setPreferredSize(this.getPreferredSize());
+        BackgroundLabel.setBounds(this.getBounds());
+        ImageIcon icon= new ImageIcon(getClass().getResource("background.jpg"));
+        Image img=icon.getImage();
+        Image scaledImage = img.getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon=new ImageIcon(scaledImage);
+        BackgroundLabel.setIcon(scaledIcon);    
     }
 
     /**
@@ -34,29 +48,32 @@ public class AdminLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        UsernameLabel = new javax.swing.JLabel();
+        passwordLabel = new javax.swing.JLabel();
         UserNameTextField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        PasswordTextField = new javax.swing.JPasswordField();
+        PasswordField = new javax.swing.JPasswordField();
+        BackgroundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(550, 400));
         setMinimumSize(new java.awt.Dimension(550, 400));
+        setPreferredSize(new java.awt.Dimension(550, 500));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("User Name");
-        jLabel1.setMaximumSize(new java.awt.Dimension(100, 30));
-        jLabel1.setMinimumSize(new java.awt.Dimension(100, 30));
-        jLabel1.setPreferredSize(new java.awt.Dimension(100, 30));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 107, -1, -1));
+        UsernameLabel.setText("User Name");
+        UsernameLabel.setMaximumSize(new java.awt.Dimension(100, 30));
+        UsernameLabel.setMinimumSize(new java.awt.Dimension(100, 30));
+        UsernameLabel.setPreferredSize(new java.awt.Dimension(100, 30));
+        getContentPane().add(UsernameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 107, -1, -1));
 
-        jLabel2.setText("Password");
-        jLabel2.setMaximumSize(new java.awt.Dimension(100, 30));
-        jLabel2.setMinimumSize(new java.awt.Dimension(100, 30));
-        jLabel2.setPreferredSize(new java.awt.Dimension(100, 30));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 180, -1, -1));
+        passwordLabel.setText("Password");
+        passwordLabel.setMaximumSize(new java.awt.Dimension(100, 30));
+        passwordLabel.setMinimumSize(new java.awt.Dimension(100, 30));
+        passwordLabel.setPreferredSize(new java.awt.Dimension(100, 30));
+        getContentPane().add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 180, -1, -1));
 
         UserNameTextField.setMaximumSize(new java.awt.Dimension(100, 30));
         UserNameTextField.setMinimumSize(new java.awt.Dimension(100, 30));
@@ -79,9 +96,12 @@ public class AdminLogin extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, -1));
 
-        PasswordTextField.setMaximumSize(new java.awt.Dimension(150, 30));
-        PasswordTextField.setMinimumSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(PasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 150, 30));
+        PasswordField.setMaximumSize(new java.awt.Dimension(150, 30));
+        PasswordField.setMinimumSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 150, 30));
+
+        BackgroundLabel.setText("jLabel1");
+        getContentPane().add(BackgroundLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -89,7 +109,7 @@ public class AdminLogin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String username=UserNameTextField.getText();
-        String password=new String(PasswordTextField.getPassword());
+        String password=new String(PasswordField.getPassword());
         
 //        if(username.contentEquals("admin") && password.contentEquals("password")){
 //            setVisible(false);
@@ -168,11 +188,12 @@ public class AdminLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField PasswordTextField;
+    private javax.swing.JLabel BackgroundLabel;
+    private javax.swing.JPasswordField PasswordField;
     private javax.swing.JTextField UserNameTextField;
+    private javax.swing.JLabel UsernameLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel passwordLabel;
     // End of variables declaration//GEN-END:variables
 }

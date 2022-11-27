@@ -6,9 +6,11 @@ package GUI;
 
 import javax.swing.JOptionPane;
 import ConnectionProvider.ConnectionProviderCode;
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import javax.swing.ImageIcon;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -24,7 +26,18 @@ public class DeleteResult extends javax.swing.JFrame {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
+        setTitle("Delete Results");
         DeleteButton.setEnabled(false);
+        scaleimage();
+    }
+    public void scaleimage(){
+        BackgroundLabel.setPreferredSize(this.getPreferredSize());
+        BackgroundLabel.setBounds(this.getBounds());
+        ImageIcon icon= new ImageIcon(getClass().getResource("background.jpg"));
+        Image img=icon.getImage();
+        Image scaledImage = img.getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon=new ImageIcon(scaledImage);
+        BackgroundLabel.setIcon(scaledIcon);    
     }
 
     /**
@@ -36,22 +49,24 @@ public class DeleteResult extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        RollNoLabel = new javax.swing.JLabel();
         RollNoTextField = new javax.swing.JTextField();
         DeleteButton = new javax.swing.JButton();
         ExitButton = new javax.swing.JButton();
         SearchButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        OutputTable = new javax.swing.JTable();
+        BackgroundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(550, 500));
         setMinimumSize(new java.awt.Dimension(550, 500));
         setPreferredSize(new java.awt.Dimension(550, 500));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Rollno");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 100, 30));
+        RollNoLabel.setText("Rollno");
+        getContentPane().add(RollNoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 100, 30));
 
         RollNoTextField.setMaximumSize(new java.awt.Dimension(150, 30));
         RollNoTextField.setMinimumSize(new java.awt.Dimension(150, 30));
@@ -91,7 +106,7 @@ public class DeleteResult extends javax.swing.JFrame {
         });
         getContentPane().add(SearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        OutputTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -102,9 +117,12 @@ public class DeleteResult extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(OutputTable);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, 190));
+
+        BackgroundLabel.setText("jLabel1");
+        getContentPane().add(BackgroundLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -142,7 +160,7 @@ public class DeleteResult extends javax.swing.JFrame {
             Statement st=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             String query="SELECT * FROM RESULT WHERE ROLLNO ="+rollno;
             ResultSet rs=st.executeQuery(query);
-            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+            OutputTable.setModel(DbUtils.resultSetToTableModel(rs));
             if(!rs.first()){
                 JOptionPane.showMessageDialog(null, "No results for given roll number");
             }
@@ -192,12 +210,13 @@ public class DeleteResult extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BackgroundLabel;
     private javax.swing.JButton DeleteButton;
     private javax.swing.JButton ExitButton;
+    private javax.swing.JTable OutputTable;
+    private javax.swing.JLabel RollNoLabel;
     private javax.swing.JTextField RollNoTextField;
     private javax.swing.JButton SearchButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

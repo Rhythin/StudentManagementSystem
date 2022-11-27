@@ -8,7 +8,9 @@ package GUI;
 import java.sql.Connection;
 import java.sql.Statement;
 import ConnectionProvider.ConnectionProviderCode;
+import java.awt.Image;
 import java.sql.ResultSet;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -26,6 +28,17 @@ public class InsertResult extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+        setTitle("Add Result");
+        scaleimage();
+    }
+    public void scaleimage(){
+        BackgroundLabel.setPreferredSize(this.getPreferredSize());
+        BackgroundLabel.setBounds(this.getBounds());
+        ImageIcon icon= new ImageIcon(getClass().getResource("background.jpg"));
+        Image img=icon.getImage();
+        Image scaledImage = img.getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon=new ImageIcon(scaledImage);
+        BackgroundLabel.setIcon(scaledIcon);    
     }
 
     /**
@@ -37,16 +50,16 @@ public class InsertResult extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        RollNoLabel = new javax.swing.JLabel();
         rollNoTextField = new javax.swing.JTextField();
         SearchButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        PhysicsLabel = new javax.swing.JLabel();
+        MathsLabel = new javax.swing.JLabel();
+        ChemistryLabel = new javax.swing.JLabel();
+        EletricalLabel = new javax.swing.JLabel();
+        BiologyLabel = new javax.swing.JLabel();
         PhysicsTextField = new javax.swing.JTextField();
         MathsTextField = new javax.swing.JTextField();
         ChemistryTextField = new javax.swing.JTextField();
@@ -54,18 +67,20 @@ public class InsertResult extends javax.swing.JFrame {
         BiologyTextField = new javax.swing.JTextField();
         SubmitButton = new javax.swing.JButton();
         ExitButton = new javax.swing.JButton();
+        BackgroundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(550, 500));
         setMinimumSize(new java.awt.Dimension(550, 500));
         setPreferredSize(new java.awt.Dimension(550, 500));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Roll No");
-        jLabel1.setMaximumSize(new java.awt.Dimension(150, 30));
-        jLabel1.setMinimumSize(new java.awt.Dimension(150, 30));
-        jLabel1.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 160, 30));
+        RollNoLabel.setText("Roll No");
+        RollNoLabel.setMaximumSize(new java.awt.Dimension(150, 30));
+        RollNoLabel.setMinimumSize(new java.awt.Dimension(150, 30));
+        RollNoLabel.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(RollNoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 160, 30));
 
         rollNoTextField.setMaximumSize(new java.awt.Dimension(150, 30));
         rollNoTextField.setMinimumSize(new java.awt.Dimension(150, 30));
@@ -98,35 +113,35 @@ public class InsertResult extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 510, 60));
 
-        jLabel2.setText("Physics");
-        jLabel2.setMaximumSize(new java.awt.Dimension(150, 30));
-        jLabel2.setMinimumSize(new java.awt.Dimension(150, 30));
-        jLabel2.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
+        PhysicsLabel.setText("Physics");
+        PhysicsLabel.setMaximumSize(new java.awt.Dimension(150, 30));
+        PhysicsLabel.setMinimumSize(new java.awt.Dimension(150, 30));
+        PhysicsLabel.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(PhysicsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
 
-        jLabel3.setText("Maths");
-        jLabel3.setMaximumSize(new java.awt.Dimension(150, 30));
-        jLabel3.setMinimumSize(new java.awt.Dimension(150, 30));
-        jLabel3.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
+        MathsLabel.setText("Maths");
+        MathsLabel.setMaximumSize(new java.awt.Dimension(150, 30));
+        MathsLabel.setMinimumSize(new java.awt.Dimension(150, 30));
+        MathsLabel.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(MathsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
-        jLabel4.setText("Chemistry");
-        jLabel4.setMaximumSize(new java.awt.Dimension(150, 30));
-        jLabel4.setMinimumSize(new java.awt.Dimension(150, 30));
-        jLabel4.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, -1));
+        ChemistryLabel.setText("Chemistry");
+        ChemistryLabel.setMaximumSize(new java.awt.Dimension(150, 30));
+        ChemistryLabel.setMinimumSize(new java.awt.Dimension(150, 30));
+        ChemistryLabel.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(ChemistryLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, -1));
 
-        jLabel5.setText("Eletrical");
-        jLabel5.setMaximumSize(new java.awt.Dimension(150, 30));
-        jLabel5.setMinimumSize(new java.awt.Dimension(150, 30));
-        jLabel5.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
+        EletricalLabel.setText("Eletrical");
+        EletricalLabel.setMaximumSize(new java.awt.Dimension(150, 30));
+        EletricalLabel.setMinimumSize(new java.awt.Dimension(150, 30));
+        EletricalLabel.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(EletricalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
 
-        jLabel6.setText("Biology");
-        jLabel6.setMaximumSize(new java.awt.Dimension(150, 30));
-        jLabel6.setMinimumSize(new java.awt.Dimension(150, 30));
-        jLabel6.setPreferredSize(new java.awt.Dimension(150, 30));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
+        BiologyLabel.setText("Biology");
+        BiologyLabel.setMaximumSize(new java.awt.Dimension(150, 30));
+        BiologyLabel.setMinimumSize(new java.awt.Dimension(150, 30));
+        BiologyLabel.setPreferredSize(new java.awt.Dimension(150, 30));
+        getContentPane().add(BiologyLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
 
         PhysicsTextField.setMaximumSize(new java.awt.Dimension(150, 30));
         PhysicsTextField.setMinimumSize(new java.awt.Dimension(150, 30));
@@ -174,6 +189,9 @@ public class InsertResult extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ExitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, -1, -1));
+
+        BackgroundLabel.setText("jLabel1");
+        getContentPane().add(BackgroundLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -271,20 +289,21 @@ public class InsertResult extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BackgroundLabel;
+    private javax.swing.JLabel BiologyLabel;
     private javax.swing.JTextField BiologyTextField;
+    private javax.swing.JLabel ChemistryLabel;
     private javax.swing.JTextField ChemistryTextField;
+    private javax.swing.JLabel EletricalLabel;
     private javax.swing.JTextField EletricalTextField;
     private javax.swing.JButton ExitButton;
+    private javax.swing.JLabel MathsLabel;
     private javax.swing.JTextField MathsTextField;
+    private javax.swing.JLabel PhysicsLabel;
     private javax.swing.JTextField PhysicsTextField;
+    private javax.swing.JLabel RollNoLabel;
     private javax.swing.JButton SearchButton;
     private javax.swing.JButton SubmitButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField rollNoTextField;

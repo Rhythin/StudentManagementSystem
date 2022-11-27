@@ -5,9 +5,11 @@
 package GUI;
 
 import ConnectionProvider.ConnectionProviderCode;
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +25,17 @@ public class Student extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+        setTitle("Student Page");
+        scaleimage();
+    }
+    public void scaleimage(){
+        BackgroundLabel.setPreferredSize(this.getPreferredSize());
+        BackgroundLabel.setBounds(this.getBounds());
+        ImageIcon icon= new ImageIcon(getClass().getResource("background.jpg"));
+        Image img=icon.getImage();
+        Image scaledImage = img.getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon=new ImageIcon(scaledImage);
+        BackgroundLabel.setIcon(scaledIcon);    
     }
 
     /**
@@ -39,10 +52,13 @@ public class Student extends javax.swing.JFrame {
         rollNoTextField = new javax.swing.JTextField();
         SubmitButton = new javax.swing.JButton();
         ExitButton = new javax.swing.JButton();
+        BackgroundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(550, 500));
         setMinimumSize(new java.awt.Dimension(550, 500));
+        setPreferredSize(new java.awt.Dimension(550, 500));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -81,6 +97,9 @@ public class Student extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ExitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, -1, -1));
+
+        BackgroundLabel.setText("jLabel3");
+        getContentPane().add(BackgroundLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -148,6 +167,7 @@ public class Student extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BackgroundLabel;
     private javax.swing.JButton ExitButton;
     private javax.swing.JButton SubmitButton;
     private javax.swing.JLabel jLabel1;

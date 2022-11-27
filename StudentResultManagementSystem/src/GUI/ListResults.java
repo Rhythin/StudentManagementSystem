@@ -6,9 +6,11 @@ package GUI;
 
 import javax.swing.JOptionPane;
 import ConnectionProvider.ConnectionProviderCode;
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import javax.swing.ImageIcon;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -24,6 +26,17 @@ public class ListResults extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+        setTitle("List of Results");
+        scaleimage();
+    }
+    public void scaleimage(){
+        BackgroundLabel.setPreferredSize(this.getPreferredSize());
+        BackgroundLabel.setBounds(this.getBounds());
+        ImageIcon icon= new ImageIcon(getClass().getResource("background.jpg"));
+        Image img=icon.getImage();
+        Image scaledImage = img.getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon=new ImageIcon(scaledImage);
+        BackgroundLabel.setIcon(scaledIcon);    
     }
 
     /**
@@ -39,10 +52,13 @@ public class ListResults extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         ExitButton = new javax.swing.JButton();
+        BackgroundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(550, 500));
         setMinimumSize(new java.awt.Dimension(550, 500));
+        setPreferredSize(new java.awt.Dimension(550, 500));
+        setResizable(false);
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -79,6 +95,9 @@ public class ListResults extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ExitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, -1, -1));
+
+        BackgroundLabel.setText("jLabel2");
+        getContentPane().add(BackgroundLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -137,6 +156,7 @@ public class ListResults extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BackgroundLabel;
     private javax.swing.JButton ExitButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

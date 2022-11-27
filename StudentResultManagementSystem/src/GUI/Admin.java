@@ -4,6 +4,9 @@
  */
 package GUI;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Rhythin
@@ -17,6 +20,17 @@ public class Admin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        scaleimage();
+        setTitle("Admin Page");
+    }
+    public void scaleimage(){
+        BackgroundLabel.setPreferredSize(this.getPreferredSize());
+        BackgroundLabel.setBounds(this.getBounds());
+        ImageIcon icon= new ImageIcon(getClass().getResource("background.jpg"));
+        Image img=icon.getImage();
+        Image scaledImage = img.getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon=new ImageIcon(scaledImage);
+        BackgroundLabel.setIcon(scaledIcon);    
     }
 
     /**
@@ -38,10 +52,14 @@ public class Admin extends javax.swing.JFrame {
         AddAdminButton = new javax.swing.JButton();
         DeleteStudentButton = new javax.swing.JButton();
         DeleteResult = new javax.swing.JButton();
+        SetupButton = new javax.swing.JButton();
+        BackgroundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(550, 400));
         setMinimumSize(new java.awt.Dimension(550, 400));
+        setPreferredSize(new java.awt.Dimension(550, 500));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         InsertStudentButton.setText("Insert Student");
@@ -53,7 +71,7 @@ public class Admin extends javax.swing.JFrame {
                 InsertStudentButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(InsertStudentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 58, -1, -1));
+        getContentPane().add(InsertStudentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
 
         InsertResultButton.setText("InsertResult");
         InsertResultButton.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -64,7 +82,7 @@ public class Admin extends javax.swing.JFrame {
                 InsertResultButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(InsertResultButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 114, -1, -1));
+        getContentPane().add(InsertResultButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
 
         ListStudentsButton.setText("List Students");
         ListStudentsButton.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -75,7 +93,7 @@ public class Admin extends javax.swing.JFrame {
                 ListStudentsButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(ListStudentsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 182, -1, -1));
+        getContentPane().add(ListStudentsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
 
         ListResultsButton.setText("List Results");
         ListResultsButton.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -86,7 +104,7 @@ public class Admin extends javax.swing.JFrame {
                 ListResultsButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(ListResultsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
+        getContentPane().add(ListResultsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
         UpdateResultButton.setText("Update Student Result");
         UpdateResultButton.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -97,7 +115,7 @@ public class Admin extends javax.swing.JFrame {
                 UpdateResultButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(UpdateResultButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
+        getContentPane().add(UpdateResultButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, -1));
 
         LogoutButton.setText("Logout");
         LogoutButton.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -108,7 +126,7 @@ public class Admin extends javax.swing.JFrame {
                 LogoutButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(LogoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, -1, -1));
+        getContentPane().add(LogoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, -1, -1));
 
         DeleteAdmin.setText("Delete Admin");
         DeleteAdmin.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -119,7 +137,7 @@ public class Admin extends javax.swing.JFrame {
                 DeleteAdminActionPerformed(evt);
             }
         });
-        getContentPane().add(DeleteAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, -1));
+        getContentPane().add(DeleteAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, -1, -1));
 
         AddAdminButton.setText("Add Admin");
         AddAdminButton.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -130,7 +148,7 @@ public class Admin extends javax.swing.JFrame {
                 AddAdminButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(AddAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, -1, -1));
+        getContentPane().add(AddAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, -1, -1));
 
         DeleteStudentButton.setText("Delete Student");
         DeleteStudentButton.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -141,7 +159,7 @@ public class Admin extends javax.swing.JFrame {
                 DeleteStudentButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(DeleteStudentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
+        getContentPane().add(DeleteStudentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
 
         DeleteResult.setText("Delete Result");
         DeleteResult.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -152,7 +170,21 @@ public class Admin extends javax.swing.JFrame {
                 DeleteResultActionPerformed(evt);
             }
         });
-        getContentPane().add(DeleteResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, -1, -1));
+        getContentPane().add(DeleteResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, -1));
+
+        SetupButton.setText("Setup");
+        SetupButton.setMaximumSize(new java.awt.Dimension(150, 30));
+        SetupButton.setMinimumSize(new java.awt.Dimension(150, 30));
+        SetupButton.setPreferredSize(new java.awt.Dimension(150, 30));
+        SetupButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SetupButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(SetupButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, -1, -1));
+
+        BackgroundLabel.setText("jLabel1");
+        getContentPane().add(BackgroundLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -217,6 +249,12 @@ public class Admin extends javax.swing.JFrame {
         DeleteAdmin frame=new DeleteAdmin();
     }//GEN-LAST:event_DeleteAdminActionPerformed
 
+    private void SetupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetupButtonActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        SetupDatabase frame=new SetupDatabase();
+    }//GEN-LAST:event_SetupButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -254,6 +292,7 @@ public class Admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddAdminButton;
+    private javax.swing.JLabel BackgroundLabel;
     private javax.swing.JButton DeleteAdmin;
     private javax.swing.JButton DeleteResult;
     private javax.swing.JButton DeleteStudentButton;
@@ -262,6 +301,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JButton ListResultsButton;
     private javax.swing.JButton ListStudentsButton;
     private javax.swing.JButton LogoutButton;
+    private javax.swing.JButton SetupButton;
     private javax.swing.JButton UpdateResultButton;
     // End of variables declaration//GEN-END:variables
 }

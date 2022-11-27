@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import ConnectionProvider.ConnectionProviderCode;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -23,6 +25,8 @@ public class StudentResult extends javax.swing.JFrame {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
+        setTitle("Student Results");
+        scaleimage();
     }
     public StudentResult(int rollno) {
         initComponents();
@@ -30,6 +34,16 @@ public class StudentResult extends javax.swing.JFrame {
         rollNoTextField.setEditable(false);
         setVisible(true);
         setLocationRelativeTo(null);
+        scaleimage();
+    }
+    public void scaleimage(){
+        BackgroundLabel.setPreferredSize(this.getPreferredSize());
+        BackgroundLabel.setBounds(this.getBounds());
+        ImageIcon icon= new ImageIcon(getClass().getResource("background.jpg"));
+        Image img=icon.getImage();
+        Image scaledImage = img.getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon=new ImageIcon(scaledImage);
+        BackgroundLabel.setIcon(scaledIcon);    
     }
 
     /**
@@ -82,11 +96,13 @@ public class StudentResult extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         VerdictTextField = new javax.swing.JTextField();
         ExitButton = new javax.swing.JButton();
+        BackgroundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(550, 500));
         setMinimumSize(new java.awt.Dimension(550, 500));
-        setPreferredSize(new java.awt.Dimension(550, 500));
+        setPreferredSize(new java.awt.Dimension(550, 550));
+        setResizable(false);
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -238,17 +254,22 @@ public class StudentResult extends javax.swing.JFrame {
         physicsTextField.setMaximumSize(new java.awt.Dimension(100, 30));
         physicsTextField.setMinimumSize(new java.awt.Dimension(100, 30));
         physicsTextField.setPreferredSize(new java.awt.Dimension(100, 30));
-        getContentPane().add(physicsTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, -1, -1));
+        getContentPane().add(physicsTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, -1, -1));
 
         mathsTextField.setMaximumSize(new java.awt.Dimension(100, 30));
         mathsTextField.setMinimumSize(new java.awt.Dimension(100, 30));
         mathsTextField.setPreferredSize(new java.awt.Dimension(100, 30));
-        getContentPane().add(mathsTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, -1, -1));
+        getContentPane().add(mathsTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
 
         ChemistryTextField.setMaximumSize(new java.awt.Dimension(100, 30));
         ChemistryTextField.setMinimumSize(new java.awt.Dimension(100, 30));
         ChemistryTextField.setPreferredSize(new java.awt.Dimension(100, 30));
-        getContentPane().add(ChemistryTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, -1, -1));
+        ChemistryTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChemistryTextFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ChemistryTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, -1, -1));
 
         EletricalTextField.setMaximumSize(new java.awt.Dimension(100, 30));
         EletricalTextField.setMinimumSize(new java.awt.Dimension(100, 30));
@@ -275,6 +296,9 @@ public class StudentResult extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ExitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 470, -1, -1));
+
+        BackgroundLabel.setText("jLabel2");
+        getContentPane().add(BackgroundLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -352,6 +376,10 @@ public class StudentResult extends javax.swing.JFrame {
         Student frame=new Student();
     }//GEN-LAST:event_ExitButtonActionPerformed
 
+    private void ChemistryTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChemistryTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ChemistryTextFieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -388,6 +416,7 @@ public class StudentResult extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BackgroundLabel;
     private javax.swing.JTextField BiologyTextField;
     private javax.swing.JTextField BranchTextField;
     private javax.swing.JTextField ChemistryTextField;

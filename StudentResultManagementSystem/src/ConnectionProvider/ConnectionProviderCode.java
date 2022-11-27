@@ -8,6 +8,8 @@ package ConnectionProvider;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
+import ConnectionProvider.connectionDetails;
+
 /**
  *
  * @author Rhythin
@@ -16,9 +18,13 @@ public class ConnectionProviderCode {
     public static Connection getcon(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver"); 
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/StudentResultSystem",
-                    "root","password");
+            connectionDetails cd=new connectionDetails();
+            String url="jdbc:mysql://"+connectionDetails.getServername()+":"+connectionDetails.getPort()+"/"+connectionDetails.getDatabase();
+            String user=connectionDetails.getUsername();
+            String password=connectionDetails.getPassowrd();
+            Connection con=DriverManager.getConnection(url, user, password);
             return con;
+            
             
         }
         catch(Exception exep){
