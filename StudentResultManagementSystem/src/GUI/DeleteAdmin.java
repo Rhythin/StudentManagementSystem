@@ -24,7 +24,7 @@ public class DeleteAdmin extends javax.swing.JFrame {
      */
     public DeleteAdmin() {
         initComponents();
-        setVisible(false);
+        setVisible(true);
         setLocationRelativeTo(null);
         setTitle("Delete Admin");
         DeleteButton.setEnabled(false);

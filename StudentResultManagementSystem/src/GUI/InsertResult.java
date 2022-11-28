@@ -29,6 +29,7 @@ public class InsertResult extends javax.swing.JFrame {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         setTitle("Add Result");
+        SubmitButton.setEnabled(false);
         scaleimage();
     }
     public void scaleimage(){
@@ -209,6 +210,7 @@ public class InsertResult extends javax.swing.JFrame {
             }
             else{
                 rollNoTextField.setEditable(false);
+                SubmitButton.setEnabled(true);
             }
            
         }
