@@ -13,7 +13,7 @@ PS. the application does require some database setup to get started. for more de
 
 **Framework** JSwing, Awt
 
-**Database** MY-SQL
+**Database** My-SQL
 
 
 ## Features
